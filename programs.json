@@ -1,0 +1,90 @@
+[
+    {
+        "tag": "",
+        "name": "xorg",
+        "purpose": "grafical environment"
+    },
+    {
+        "tag": "",
+        "name": "ffmpeg",
+        "purpose": "can record and splice video and audio on the command line"
+    },
+    {
+        "tag": "",
+        "name": "pulseaudio",
+        "purpose": "network-capable sound server program"
+    },
+    {
+        "tag": "",
+        "name": "pavucontrol",
+        "purpose": "optional package for pulseaudio"
+    },
+    {
+        "tag": "W",
+        "name": "google-chrome",
+        "purpose": "browser",
+        "url": "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+    },
+    {
+        "tag": "W",
+        "name": "discord",
+        "purpose": "VoIP and instant messaging social platform",
+        "url": "https://discord.com/api/download?platform=linux&format=deb"
+    },
+    {
+        "tag": "W",
+        "name": "audio-relay",
+        "purpose": "Stream audio between your devices",
+        "url": "https://dl.audiorelay.net/setups/linux/audiorelay-0.25.6.deb"
+    },
+    {
+        "tag": "G",
+        "name": "dwm",
+        "purpose": "suckless window manager",
+        "url": "https://git.suckless.org/dwm",
+        "dependencies": [
+            "libx11-dev",
+            "libxft-dev",
+            "libxinerama-dev"
+        ]
+    },
+    {
+        "tag": "G",
+        "name": "st",
+        "purpose": "suckless terminal",
+        "url": "https://git.suckless.org/st",
+        "dependencies": [
+            "libx11-dev",
+            "libxft-dev",
+            "libxinerama-dev",
+            "libharfbuzz-dev"
+        ]
+    },
+    {
+        "tag": "G",
+        "name": "dmenu",
+        "purpose": "suckless command runner and selection UI",
+        "url": "https://git.suckless.org/dmenu",
+        "dependencies": [
+            "libx11-dev",
+            "libxft-dev",
+            "libxinerama-dev"
+        ]
+    },
+    {
+        "tag": "G",
+        "name": "dwmblocks",
+        "purpose": "suckless modular status bar",
+        "url": "https://github.com/torrinfail/dwmblocks",
+        "dependencies": [
+            "libx11-dev",
+            "libxft-dev",
+            "libxinerama-dev"
+        ]
+    },
+    {
+        "tag": "C",
+        "name": "docker",
+        "purpose": "OS-level virtualization to deliver software in packages called containers"
+    }
+]
