@@ -54,7 +54,7 @@ sudo apt --fix-broken install --yes
 
 # Installing make wget whiptail git
 echo -e "Installing tools needed for further operations";
-sudo apt-get install make wget git whiptail --yes
+sudo apt-get install make wget git whiptail jq --yes
 
 # Ask which software to install
 dialogbox=(whiptail --separate-output --ok-button "Install" --title "Auto Setup Script" --checklist "\nPlease select required software(s):\n(Press 'Space' to Select/Deselect, 'Enter' to Install and 'Esc' to Cancel)" 30 90 20)
