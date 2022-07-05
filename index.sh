@@ -3,7 +3,7 @@
 # Installation functions
 aptInstall(){
   # Installs all needed programs from main repo
-	sudo apt-get install "$1" -qq 
+	sudo apt-get install "$1"
 }
 gitInstall(){
   repository=$(jq --raw-output ".[] | select(.name==\"$1\") | .url" programs.json)
@@ -11,7 +11,7 @@ gitInstall(){
   directory="repositories-directory/$programName"
   git clone $repository $directory
   dependencies=($(jq --raw-output ".[] | select(.name==\"$1\") | .dependencies | .[]" programs.json))
-  sudo apt-get install "$dependencies" --yes
+  sudo apt-get install "${dependencies[@]}" --yes
   make --directory=$directory
   sudo make install --directory=$directory
 }
@@ -25,7 +25,7 @@ complicatedInstall(){
   case $1 in
     "docker")
       # Install packages to allow apt to use a repository over HTTPS:
-      sudo apt-get install ca-certificates curl gnupg lsb-release -qq
+      sudo apt-get install ca-certificates curl gnupg lsb-release
       # Add Docker’s official GPG key:
       sudo mkdir "/etc/apt/keyrings" --parents
       curl "https://download.docker.com/linux/debian/gpg" --fail --silent --location| sudo gpg --dearmor -o "/etc/apt/keyrings/docker.gpg"
@@ -79,7 +79,7 @@ do
 done
 # VirtualMic for AudioRelay
 # TODO: check if AudioRelay & PulseAudio are installed, change to sudo the cat execution
-if dpkg-query --show --showformat='${Status}\n' "pulseaudio" 2> /dev/null | grep --quiet "ok installed"
+if dpkg-query --show --showformat='${Status}\n' "pulseaudio" 2> /dev/null | grep -quiet "ok installed"
 then
     cat >> "/etc/pulse/default.pa" <<- EOF
     # Creates a device where AudioRelay can stream audio into
