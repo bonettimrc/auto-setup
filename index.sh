@@ -16,10 +16,10 @@ gitInstall(){
   sudo make install --directory=$directory
 }
 wgetInstall(){
-  file="binaries-directory/$1.deb"
+  file="./binaries-directory/$1.deb"
   url=$(jq --raw-output ".[] | select(.name==\"$1\") | .url" programs.json)
   wget $url --output-document="$file"
-  sudo apt install $file
+  sudo apt install "$file"
 }
 complicatedInstall(){
   case $1 in
