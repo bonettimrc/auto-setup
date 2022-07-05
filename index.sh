@@ -3,7 +3,7 @@
 # Installation functions
 aptInstall(){
   # Installs all needed programs from main repo
-	sudo apt-get install "$1"
+	sudo apt-get install "$1" --yes
 }
 gitInstall(){
   repository=$(jq --raw-output ".[] | select(.name==\"$1\") | .url" programs.json)
