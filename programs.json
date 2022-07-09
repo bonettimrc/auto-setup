@@ -41,7 +41,7 @@
         "tag": "G",
         "name": "dwm",
         "purpose": "suckless window manager",
-        "url": "https://git.suckless.org/dwm",
+        "url": "https://github.com/bonettimrc/dwm",
         "dependencies": [
             "libx11-dev",
             "libxft-dev",
@@ -52,7 +52,7 @@
         "tag": "G",
         "name": "st",
         "purpose": "suckless terminal",
-        "url": "https://git.suckless.org/st",
+        "url": "https://github.com/bonettimrc/st",
         "dependencies": [
             "libx11-dev",
             "libxft-dev",
