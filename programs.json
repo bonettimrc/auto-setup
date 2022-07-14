@@ -30,7 +30,7 @@
     },
     {
         "installationType": "apt",
-        "name": "libxft-dev libxft2-",
+        "name": "libxft-dev",
         "purpose": "FreeType-based font drawing library for X (development files) (without libxft because that will be installed separately)"
     },
     {
@@ -49,15 +49,15 @@
         "purpose": "provides a debhelper sequence addon named 'autoreconf' and two commands, dh_autoreconf and dh_autoreconf_clean"
     },
     {
-        "installationType": "",
-        "name": "libxft-bgra",
-        "purpose": "A patched version of libxft that allows for colored emojis to be rendered in Suckless software",
-        "repository": "https://github.com/uditkarode/libxft-bgra"
-    },
-    {
         "installationType": "apt",
         "name": "libharfbuzz-dev",
         "purpose": "implementation of the OpenType Layout engine (aka layout engine) and the script-specific logic (aka shaping engine)"
+    },
+    {
+        "installationType": "",
+        "name": "libxft-bgra",
+        "purpose": "A patched version of libxft that allows for colored emojis to be rendered in Suckless software",
+        "url": "https://github.com/uditkarode/libxft-bgra"
     },
     {
         "installationType": "wget",
@@ -94,7 +94,7 @@
         "url": "https://github.com/bonettimrc/dwm",
         "dependencies": [
             "libx11-dev",
-            "libxft-dev libxft2-",
+            "libxft-dev",
             "libxft-bgra",
             "libxinerama-dev",
             "fonts-noto-color-emoji",
@@ -108,7 +108,7 @@
         "url": "https://github.com/bonettimrc/st",
         "dependencies": [
             "libx11-dev",
-            "libxft-dev libxft2-",
+            "libxft-dev",
             "libxft-bgra",
             "libxinerama-dev",
             "libharfbuzz-dev"
@@ -121,7 +121,7 @@
         "url": "https://git.suckless.org/dmenu",
         "dependencies": [
             "libx11-dev",
-            "libxft-dev libxft2-",
+            "libxft-dev",
             "libxft-bgra",
             "libxinerama-dev"
         ]
@@ -133,7 +133,7 @@
         "url": "https://github.com/bonettimrc/dwmblocks",
         "dependencies": [
             "libx11-dev",
-            "libxft-dev libxft2-",
+            "libxft-dev",
             "libxft-bgra",
             "libxinerama-dev"
         ]
