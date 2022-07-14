@@ -54,6 +54,11 @@
         "purpose": "implementation of the OpenType Layout engine (aka layout engine) and the script-specific logic (aka shaping engine)"
     },
     {
+        "installationType": "apt",
+        "name": "libxrandr-dev",
+        "purpose": "provides an X Window System client interface to the RandR extension to the X protocol"
+    },
+    {
         "installationType": "",
         "name": "libxft-bgra",
         "purpose": "A patched version of libxft that allows for colored emojis to be rendered in Suckless software",
@@ -95,10 +100,10 @@
         "dependencies": [
             "libx11-dev",
             "libxft-dev",
-            "libxft-bgra",
             "libxinerama-dev",
             "fonts-noto-color-emoji",
-            "dh-autoreconf"
+            "dh-autoreconf",
+            "libxft-bgra"
         ]
     },
     {
@@ -109,9 +114,9 @@
         "dependencies": [
             "libx11-dev",
             "libxft-dev",
-            "libxft-bgra",
             "libxinerama-dev",
-            "libharfbuzz-dev"
+            "libharfbuzz-dev",
+            "libxft-bgra"
         ]
     },
     {
@@ -122,8 +127,8 @@
         "dependencies": [
             "libx11-dev",
             "libxft-dev",
-            "libxft-bgra",
-            "libxinerama-dev"
+            "libxinerama-dev",
+            "libxft-bgra"
         ]
     },
     {
@@ -134,8 +139,21 @@
         "dependencies": [
             "libx11-dev",
             "libxft-dev",
-            "libxft-bgra",
-            "libxinerama-dev"
+            "libxinerama-dev",
+            "libxft-bgra"
+        ]
+    },
+    {
+        "installationType": "git",
+        "name": "slock",
+        "purpose": "suckless X display locker",
+        "url": "https://git.suckless.org/slock",
+        "dependencies": [
+            "libx11-dev",
+            "libxft-dev",
+            "libxinerama-dev",
+            "libxrandr-dev",
+            "libxft-bgra"
         ]
     },
     {
