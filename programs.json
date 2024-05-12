@@ -1,113 +1,55 @@
 [
     {
-        "installationType": "apt",
+        "tag": "",
         "name": "xorg",
         "purpose": "grafical environment"
     },
     {
-        "installationType": "apt",
+        "tag": "",
         "name": "ffmpeg",
         "purpose": "can record and splice video and audio on the command line"
     },
     {
-        "installationType": "apt",
+        "tag": "",
         "name": "pulseaudio",
         "purpose": "network-capable sound server program"
     },
     {
-        "installationType": "apt",
+        "tag": "",
         "name": "pavucontrol",
-        "purpose": "optional package for pulseaudio",
-        "dependencies": [
-            "pulseaudio",
-            "xorg"
-        ]
+        "purpose": "optional package for pulseaudio"
     },
     {
-        "installationType": "apt",
-        "name": "libx11-dev",
-        "purpose": "X Window System protocol client library written in the C programming language"
-    },
-    {
-        "installationType": "apt",
-        "name": "libxft-dev",
-        "purpose": "FreeType-based font drawing library for X (development files) (without libxft because that will be installed separately)"
-    },
-    {
-        "installationType": "apt",
-        "name": "libxinerama-dev",
-        "purpose": "X Window System client interface to the XINERAMA extension to the X protocol"
-    },
-    {
-        "installationType": "apt",
-        "name": "fonts-noto-color-emoji",
-        "purpose": "color emoji font used on \"stock\" Android devices such as the Google Pixel"
-    },
-    {
-        "installationType": "apt",
-        "name": "dh-autoreconf",
-        "purpose": "provides a debhelper sequence addon named 'autoreconf' and two commands, dh_autoreconf and dh_autoreconf_clean"
-    },
-    {
-        "installationType": "apt",
-        "name": "libharfbuzz-dev",
-        "purpose": "implementation of the OpenType Layout engine (aka layout engine) and the script-specific logic (aka shaping engine)"
-    },
-    {
-        "installationType": "apt",
-        "name": "libxrandr-dev",
-        "purpose": "provides an X Window System client interface to the RandR extension to the X protocol"
-    },
-    {
-        "installationType": "",
-        "name": "libxft-bgra",
-        "purpose": "A patched version of libxft that allows for colored emojis to be rendered in Suckless software",
-        "url": "https://github.com/uditkarode/libxft-bgra"
-    },
-    {
-        "installationType": "wget",
+        "tag": "W",
         "name": "google-chrome",
         "purpose": "browser",
-        "url": "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb",
-        "dependencies": [
-            "xorg"
-        ]
+        "url": "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
     },
     {
-        "installationType": "wget",
+        "tag": "W",
         "name": "discord",
         "purpose": "VoIP and instant messaging social platform",
-        "url": "https://discord.com/api/download?platform=linux&format=deb",
-        "dependencies": [
-            "xorg"
-        ]
+        "url": "https://discord.com/api/download?platform=linux&format=deb"
     },
     {
-        "installationType": "wget",
+        "tag": "W",
         "name": "audio-relay",
         "purpose": "Stream audio between your devices",
-        "url": "https://dl.audiorelay.net/setups/linux/audiorelay-0.25.6.deb",
-        "dependencies": [
-            "xorg",
-            "pulseaudio"
-        ]
+        "url": "https://dl.audiorelay.net/setups/linux/audiorelay-0.25.6.deb"
     },
     {
-        "installationType": "git",
+        "tag": "G",
         "name": "dwm",
         "purpose": "suckless window manager",
         "url": "https://github.com/bonettimrc/dwm",
         "dependencies": [
             "libx11-dev",
             "libxft-dev",
-            "libxinerama-dev",
-            "fonts-noto-color-emoji",
-            "dh-autoreconf",
-            "libxft-bgra"
+            "libxinerama-dev"
         ]
     },
     {
-        "installationType": "git",
+        "tag": "G",
         "name": "st",
         "purpose": "suckless terminal",
         "url": "https://github.com/bonettimrc/st",
@@ -115,76 +57,34 @@
             "libx11-dev",
             "libxft-dev",
             "libxinerama-dev",
-            "libharfbuzz-dev",
-            "libxft-bgra"
+            "libharfbuzz-dev"
         ]
     },
     {
-        "installationType": "git",
+        "tag": "G",
         "name": "dmenu",
         "purpose": "suckless command runner and selection UI",
         "url": "https://git.suckless.org/dmenu",
         "dependencies": [
             "libx11-dev",
             "libxft-dev",
-            "libxinerama-dev",
-            "libxft-bgra"
+            "libxinerama-dev"
         ]
     },
     {
-        "installationType": "git",
+        "tag": "G",
         "name": "dwmblocks",
         "purpose": "suckless modular status bar",
-        "url": "https://github.com/bonettimrc/dwmblocks",
+        "url": "https://github.com/torrinfail/dwmblocks",
         "dependencies": [
             "libx11-dev",
             "libxft-dev",
-            "libxinerama-dev",
-            "libxft-bgra"
+            "libxinerama-dev"
         ]
     },
     {
-        "installationType": "git",
-        "name": "slock",
-        "purpose": "suckless X display locker",
-        "url": "https://git.suckless.org/slock",
-        "dependencies": [
-            "libx11-dev",
-            "libxft-dev",
-            "libxinerama-dev",
-            "libxrandr-dev",
-            "libxft-bgra"
-        ]
-    },
-    {
-        "installationType": "",
+        "tag": "C",
         "name": "docker",
-        "purpose": "OS-level virtualization to deliver software in packages called containers",
-        "dependencies": [
-            "ca-certificates",
-            "curl",
-            "gnupg",
-            "lsb-release"
-        ]
-    },
-    {
-        "installationType": "apt",
-        "name": "ca-certificates",
-        "purpose": "Contains the certificate authorities shipped with Mozilla's browser to allow SSL-based applications to check for the authenticity of SSL connections"
-    },
-    {
-        "installationType": "apt",
-        "name": "curl",
-        "purpose": "command line tool for transferring data with URL syntax"
-    },
-    {
-        "installationType": "apt",
-        "name": "gnupg",
-        "purpose": "GNU's tool for secure communication and data storage"
-    },
-    {
-        "installationType": "apt",
-        "name": "lsb-release",
-        "purpose": "standard core system that third-party applications written for Linux can depend upon"
+        "purpose": "OS-level virtualization to deliver software in packages called containers"
     }
 ]
