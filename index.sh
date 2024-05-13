@@ -45,6 +45,7 @@ complicatedInstall(){
 username="bonet"
 repositories_directory="/home/$user/.local/src"
 binaries_directory="/home/$user/.local/bin"
+dotfiles_repository="https://github.com/bonettimrc/dotfiles"
 
 # Create directory for repositories
 mkdir $repositories_directory --parents
