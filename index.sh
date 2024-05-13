@@ -8,7 +8,7 @@ aptInstall(){
 gitInstall(){
   repository=$(jq --raw-output ".[] | select(.name==\"$1\") | .url" programs.json)
   programName="${repository##*/}"
-  directory="repositories-directory/$programName"
+  directory="$repositories_directory/$programName"
   git clone $repository $directory
   dependencies=($(jq --raw-output ".[] | select(.name==\"$1\") | .dependencies | .[]" programs.json))
   sudo apt-get install "${dependencies[@]}" --yes
@@ -16,7 +16,7 @@ gitInstall(){
   sudo make install --directory=$directory
 }
 wgetInstall(){
-  file="./binaries-directory/$1.deb"
+  file="$binaries_directory/$1.deb"
   url=$(jq --raw-output ".[] | select(.name==\"$1\") | .url" programs.json)
   wget $url --output-document="$file"
   sudo apt install "$file" --yes
@@ -41,11 +41,16 @@ complicatedInstall(){
 }
 # Actual script
 
+# Set constants to be used throught the script
+username="bonet"
+repositories_directory="/home/$user/.local/src"
+binaries_directory="/home/$user/.local/bin"
+
 # Create directory for repositories
-mkdir "repositories-directory" --parents
+mkdir $repositories_directory --parents
 
 # Create directory for binaries
-mkdir "binaries-directory" --parents
+mkdir $binaries_directory --parents
 
 # Upgrade and Update Command
 echo -e "Updating and upgrading before performing further operations.";
@@ -54,7 +59,12 @@ sudo apt --fix-broken install --yes
 
 # Installing make wget whiptail git
 echo -e "Installing tools needed for further operations";
-sudo apt-get install make wget git whiptail jq --yes
+sudo apt-get install make wget git jq whiptail --yes
+
+# Install dotfiles
+git clone --bare $dotfiles_repository /home/$username/.dotfiles
+git --git-dir=/home/$username/.dotfiles/ --work-tree=/home/$username config --local status.showUntrackedFiles no
+git --git-dir=/home/$username/.dotfiles/ --work-tree=/home/$username checkout
 
 # Ask which software to install
 dialogbox=(whiptail --separate-output --ok-button "Install" --title "Auto Setup Script" --checklist "\nPlease select required software(s):\n(Press 'Space' to Select/Deselect, 'Enter' to Install and 'Esc' to Cancel)" 30 90 20)
@@ -65,15 +75,17 @@ while read program; do
     options+=("$name" "$purpose" "OFF");
 done < <(jq -c '.[]' programs.json)
 selected=$("${dialogbox[@]}" "${options[@]}" 2>&1 >/dev/tty)
+
+# Install choosen software
 for choice in $selected
 do
-  tag=$(jq --raw-output ".[] | select(.name==\"$choice\") | .tag" programs.json)
-  echo $tag
+  installation_type=$(jq --raw-output ".[] | select(.name==\"$choice\") | .installationType" programs.json)
+  echo $installation_type
   TERM=ansi whiptail --title "Auto Setup Script" --infobox "Installing $choice" 9 70
-  case $tag in
-    "W") wgetInstall "$choice";;
-    "G") gitInstall "$choice";;
-    "C") complicatedInstall "$choice";;
-    *) aptInstall "$choice";;
+  case $installation_type in
+    "apt") aptInstall "$choice";;
+    "wget") wgetInstall "$choice";;
+    "git") gitInstall "$choice";;
+    *) complicatedInstall "$choice";;
   esac
 done
