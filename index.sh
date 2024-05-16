@@ -43,8 +43,8 @@ complicatedInstall(){
 
 # Set constants to be used throught the script
 username="bonet"
-repositories_directory="/home/$user/.local/src"
-binaries_directory="/home/$user/.local/bin"
+repositories_directory="/home/$username/.local/src"
+binaries_directory="/home/$username/.local/bin"
 dotfiles_repository="https://github.com/bonettimrc/dotfiles"
 
 # Create directory for repositories
@@ -65,7 +65,7 @@ sudo apt-get install make wget git jq whiptail --yes
 # Install dotfiles
 git clone --bare $dotfiles_repository /home/$username/.dotfiles
 git --git-dir=/home/$username/.dotfiles/ --work-tree=/home/$username config --local status.showUntrackedFiles no
-git --git-dir=/home/$username/.dotfiles/ --work-tree=/home/$username checkout
+git --git-dir=/home/$username/.dotfiles/ --work-tree=/home/$username checkout --force
 
 # Ask which software to install
 dialogbox=(whiptail --separate-output --ok-button "Install" --title "Auto Setup Script" --checklist "\nPlease select required software(s):\n(Press 'Space' to Select/Deselect, 'Enter' to Install and 'Esc' to Cancel)" 30 90 20)
