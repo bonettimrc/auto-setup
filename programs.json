@@ -6,6 +6,21 @@
     },
     {
         "installationType": "apt",
+        "name": "dunst",
+        "purpose": "notifications' server"
+    },
+    {
+        "installationType": "apt",
+        "name": "libnotify-bin",
+        "purpose": "utility to send notifications"
+    },
+    {
+        "installationType": "apt",
+        "name": "xwallpaper",
+        "purpose": "utility to set wallpaper"
+    },
+    {
+        "installationType": "apt",
         "name": "neovim",
         "purpose": "text editor"
     },
