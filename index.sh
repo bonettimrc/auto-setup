@@ -90,3 +90,6 @@ do
     *) complicatedInstall "$choice";;
   esac
 done
+
+# Update font cache
+fc-cache -v

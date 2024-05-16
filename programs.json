@@ -6,6 +6,31 @@
     },
     {
         "installationType": "apt",
+        "name": "neovim",
+        "purpose": "text editor"
+    },
+    {
+        "installationType": "apt",
+        "name": "tmux",
+        "purpose": "terminal multiplexer"
+    },
+    {
+        "installationType": "apt",
+        "name": "network-manager",
+        "purpose": "manages networks"
+    },
+    {
+        "installationType": "apt",
+        "name": "fontconfig",
+        "purpose": "font configuration library"
+    },
+    {
+        "installationType": "apt",
+        "name": "fonts-noto-color-emoji",
+        "purpose": "colored emoji"
+    },
+    {
+        "installationType": "apt",
         "name": "ffmpeg",
         "purpose": "can record and splice video and audio on the command line"
     },
@@ -48,6 +73,17 @@
         "name": "dmenu",
         "purpose": "suckless command runner and selection UI",
         "url": "https://git.suckless.org/dmenu",
+        "dependencies": [
+            "libx11-dev",
+            "libxft-dev",
+            "libxinerama-dev"
+        ]
+    },
+    {
+        "installationType": "git",
+        "name": "dwmblocks",
+        "purpose": "suckless status bar for dwm",
+        "url": "https://github.com/bonettimrc/dwmblocks",
         "dependencies": [
             "libx11-dev",
             "libxft-dev",
