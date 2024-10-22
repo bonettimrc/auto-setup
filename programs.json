@@ -25,7 +25,7 @@
         "purpose": "utility to set wallpaper"
     },
     {
-        "installationType": "apt",
+        "installationType": "",
         "name": "neovim",
         "purpose": "text editor"
     },

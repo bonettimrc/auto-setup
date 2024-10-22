@@ -45,6 +45,24 @@ complicatedInstall(){
       echo "GRUB_THEME=/boot/grub/themes/minegrub/theme.txt" | sudo tee --append /etc/default/grub
       sudo update-grub
       ;;
+    "neovim")
+      # see https://www.reddit.com/r/debian/comments/188d3wc/neovim_on_debian/
+      sudo apt install ninja-build gettext cmake unzip curl --yes
+      git clone https://github.com/neovim/neovim $repositories_directory/neovim
+      currentdir=$(pwd)
+      cd $repositories_directory/neovim
+      # change to stable release
+      git checkout 8b98642002d0506d20628683958cb5c97a0dad80
+      make CMAKE_BUILD_TYPE=RelWithDebInfo
+      cd build
+      cpack -G DEB
+      sudo dpkg -i --force-overwrite nvim-linux64.deb
+      cd $currentdir
+      # install VimPlug
+      sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+      # install VimPlug plugins
+      nvim +'PlugInstall --sync' +qa
+	;;
       *);;
   esac
 }
