@@ -6,6 +6,11 @@
     },
     {
         "installationType": "apt",
+        "name": "build-essential",
+        "purpose": "to build from source"
+    },
+    {
+        "installationType": "apt",
         "name": "dunst",
         "purpose": "notifications' server"
     },
@@ -109,5 +114,10 @@
         "installationType": "",
         "name": "docker",
         "purpose": "OS-level virtualization to deliver software in packages called containers"
+    },
+    {
+        "installationType": "",
+        "name": "minegrub",
+        "purpose": "a grub theme in the style of Minecraft"
     }
 ]

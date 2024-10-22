@@ -35,8 +35,17 @@ complicatedInstall(){
       # Install docker engine
       sudo apt-get update
       sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-    ;;
-    *);;
+      ;;
+    "minegrub")
+      repository=https://github.com/Lxtharia/minegrub-theme.git
+      directory="$repositories_directory/$programName"
+      git clone $repository $directory
+      sudo cp --recursive --update --verbose $directory/minegrub-theme/minegrub /boot/grub/themes/
+      echo "GRUB_TIMEOUT_STYLE=menu" | sudo tee --append /etc/default/grub
+      echo "GRUB_THEME=/boot/grub/themes/minegrub/theme.txt" | sudo tee --append /etc/default/grub
+      sudo update-grub
+      ;;
+      *);;
   esac
 }
 # Actual script
