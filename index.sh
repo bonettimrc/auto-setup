@@ -38,7 +38,7 @@ complicatedInstall(){
       ;;
     "minegrub")
       repository=https://github.com/Lxtharia/minegrub-theme.git
-      directory="$repositories_directory/$programName"
+      directory="$repositories_directory/minegrub"
       git clone $repository $directory
       sudo cp --recursive --update --verbose $directory/minegrub-theme/minegrub /boot/grub/themes/
       echo "GRUB_TIMEOUT_STYLE=menu" | sudo tee --append /etc/default/grub
